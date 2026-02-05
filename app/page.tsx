@@ -1,65 +1,125 @@
-import Image from "next/image";
+import ThemeToggle from "@/components/ThemeToggle";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <main className="min-h-screen px-6">
+      {/* NAV */}
+      <nav className="flex justify-between items-center py-6 max-w-6xl mx-auto">
+        <h1 className="font-bold text-xl">KRUPESH</h1>
+        <ThemeToggle />
+      </nav>
+
+      {/* HERO */}
+      <section className="max-w-6xl mx-auto mt-24 grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <h2 className="text-4xl md:text-6xl font-bold leading-tight">
+            KRUPESH D. <br /> PRAJAPATI
+          </h2>
+          <p className="mt-4 text-xl text-black/70 dark:text-white/70">
+            AI / ML Developer
+          </p>
+          <p className="mt-6 max-w-md text-black/60 dark:text-white/60">
+            Building intelligent systems with data, code, and creativity.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        <div className="rounded-3xl border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 p-10 backdrop-blur">
+          <p className="text-center opacity-70">
+            AI Visual / Illustration 🤖
+          </p>
         </div>
-      </main>
-    </div>
+
+        <a
+  href="/Krupesh_Prajapati_Resume.pdf"
+  download
+  className="inline-block mt-6 rounded-full border px-6 py-3 hover:bg-black/5 dark:hover:bg-white/10"
+>
+  Download Resume
+</a>
+
+      </section>
+
+      {/* ABOUT */}
+      <section className="max-w-6xl mx-auto mt-32">
+        <h3 className="text-3xl font-bold mb-6">About Me</h3>
+        <p className="max-w-3xl text-black/70 dark:text-white/70 leading-relaxed">
+          I’m an AI/ML Developer passionate about building intelligent,
+          data-driven applications. I enjoy working on real-world problems
+          involving automation, prediction, and smart systems using modern
+          tools and frameworks.
+        </p>
+      </section>
+
+      {/* SKILLS */}
+      <section className="max-w-6xl mx-auto mt-32">
+        <h3 className="text-3xl font-bold mb-10">Skills</h3>
+
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+          {[
+            "Python",
+            "Machine Learning",
+            "Deep Learning",
+            "NLP",
+            "Computer Vision",
+            "FastAPI",
+            "React",
+            "Tailwind CSS",
+            "MongoDB",
+          ].map((skill) => (
+            <div
+              key={skill}
+              className="rounded-2xl border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 px-6 py-4 backdrop-blur hover:scale-[1.03] transition"
+            >
+              {skill}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* PROJECTS */}
+      <section className="max-w-6xl mx-auto mt-32">
+        <h3 className="text-3xl font-bold mb-10">Projects</h3>
+
+        <div className="grid md:grid-cols-2 gap-8">
+          {[
+            {
+              title: "AI Book Generator",
+              desc: "Automatically generates structured books using AI models.",
+              tech: "Python · FastAPI · AI",
+            },
+            {
+              title: "Kids Story Generator",
+              desc: "Creates age-based kids stories with illustrations.",
+              tech: "AI · MongoDB · API",
+            },
+          ].map((p) => (
+            <div
+              key={p.title}
+              className="rounded-3xl border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 p-6 backdrop-blur"
+            >
+              <h4 className="text-xl font-semibold">{p.title}</h4>
+              <p className="mt-3 text-black/70 dark:text-white/70">
+                {p.desc}
+              </p>
+              <p className="mt-4 text-sm opacity-60">{p.tech}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* CONTACT */}
+      <section className="max-w-6xl mx-auto mt-32 mb-20">
+        <h3 className="text-3xl font-bold mb-6">Contact</h3>
+        <p className="opacity-70 mb-4">
+          Let’s build something intelligent together.
+        </p>
+
+        <div className="flex gap-6">
+          <a className="underline" href="#">Email</a>
+          <a className="underline" href="#">GitHub</a>
+          <a className="underline" href="#">LinkedIn</a>
+        </div>
+      </section>
+    </main>
   );
 }
