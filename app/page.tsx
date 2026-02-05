@@ -1,4 +1,6 @@
 "use client";
+export const dynamic = "force-dynamic";
+
 import ThemeToggle from "@/components/ThemeToggle";
 import PageWrapper from "@/components/PageWrapper";
 import { motion } from "framer-motion";
