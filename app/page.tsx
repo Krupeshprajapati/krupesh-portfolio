@@ -1,25 +1,13 @@
 "use client";
-import { useSearchParams } from "next/navigation";
-
 import ThemeToggle from "@/components/ThemeToggle";
 import PageWrapper from "@/components/PageWrapper";
 import { motion } from "framer-motion";
 import { useEffect, useRef } from "react";
+import ContactSuccess from "@/components/ContactSuccess";
+
 
 export default function Home() {
-  const searchParams = useSearchParams();
-  const sent = searchParams.get("sent");
   const contactRef = useRef<HTMLDivElement>(null);
-
-  
-useEffect(() => {
-  if (sent && contactRef.current) {
-    contactRef.current.scrollIntoView({
-      behavior: "smooth",
-      block: "center",
-    });
-  }
-}, [sent]);
 
   return (
     <PageWrapper>
@@ -286,23 +274,7 @@ useEffect(() => {
 </section>
 
         
-
-
-        {sent && (
-  <div
-    className="
-      max-w-4xl mx-auto mb-12
-      rounded-2xl
-      border border-green-500/20
-      bg-green-500/10
-      p-6 text-center text-green-300
-    "
-  >
-    ✅ Thank you! Your message has been sent.
-    <br />
-    I’ll get back to you within 24 hours.
-  </div>
-)}
+<ContactSuccess />
 
 
         {/* CONTACT */}
