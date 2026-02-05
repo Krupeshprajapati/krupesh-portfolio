@@ -7,13 +7,13 @@ export default function AnimatedSection({
   children: React.ReactNode;
 }) {
   return (
-    <motion.div
+    <motion.section
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
     >
       {children}
-    </motion.div>
+    </motion.section>
   );
 }

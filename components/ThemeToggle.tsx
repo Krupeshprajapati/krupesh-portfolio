@@ -6,14 +6,24 @@ export default function ThemeToggle() {
   const [dark, setDark] = useState(false);
 
   useEffect(() => {
-    document.documentElement.classList.toggle("dark", dark);
+    const html = document.documentElement;
+
+    if (dark) {
+      html.classList.add("dark");
+    } else {
+      html.classList.remove("dark");
+    }
   }, [dark]);
 
   return (
     <button
-      onClick={() => setDark(!dark)}
-      className="rounded-full border px-4 py-2 text-sm hover:bg-black/5 dark:hover:bg-white/10"
-    >
+  onClick={() => setDark(!dark)}
+  className="relative z-10 rounded-full border px-4 py-2 text-sm
+  hover:bg-white hover:text-black
+  dark:hover:bg-white dark:hover:text-black
+  transition-all duration-300"
+>
+
       {dark ? "☀ Light" : "🌙 Dark"}
     </button>
   );

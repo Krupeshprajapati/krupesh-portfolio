@@ -1,17 +1,15 @@
 import PageWrapper from "@/components/PageWrapper";
 import { motion } from "framer-motion";
 
-export default function ProjectsPage() {
-  const projects = [
+export default function BlogPage() {
+  const posts = [
     {
-      title: "AI Book Generator",
-      desc: "Automatically generates structured books using AI models, including chapters, summaries, and metadata.",
-      stack: "Python · FastAPI · AI",
+      title: "How Machine Learning Works (Simple Guide)",
+      desc: "A beginner-friendly explanation of ML with real examples.",
     },
     {
-      title: "Kids Story Generator",
-      desc: "AI-powered system that creates age-based kids stories with illustrations and safe storytelling logic.",
-      stack: "AI · MongoDB · API",
+      title: "Building AI Products with FastAPI",
+      desc: "How I design scalable AI backends using FastAPI.",
     },
   ];
 
@@ -25,17 +23,17 @@ export default function ProjectsPage() {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <h1 className="text-5xl md:text-6xl font-semibold tracking-tight mb-6">
-            Projects
+            AI Blog
           </h1>
           <p className="max-w-2xl text-white/60 text-lg">
-            A selection of AI-driven projects focused on solving real-world
-            problems with clean architecture and scalable systems.
+            Thoughts, explainers, and experiments around AI, Machine Learning,
+            and building real-world intelligent systems.
           </p>
         </motion.div>
 
-        {/* PROJECT CARDS */}
-        <section className="mt-24 grid md:grid-cols-2 gap-12">
-          {projects.map((p, i) => (
+        {/* POSTS */}
+        <section className="mt-24 grid md:grid-cols-2 gap-10">
+          {posts.map((p, i) => (
             <motion.article
               key={p.title}
               initial={{ opacity: 0, y: 40 }}
@@ -46,7 +44,6 @@ export default function ProjectsPage() {
                 delay: i * 0.1,
               }}
               className="
-                group
                 rounded-[28px]
                 border border-white/10
                 bg-white/[0.04]
@@ -57,24 +54,20 @@ export default function ProjectsPage() {
                 hover:shadow-[0_30px_80px_-25px_rgba(0,0,0,0.9)]
               "
             >
-              {/* TITLE */}
-              <h3 className="text-2xl font-medium mb-4 tracking-tight">
+              <h2 className="text-2xl font-medium mb-4">
                 {p.title}
-              </h3>
+              </h2>
 
-              {/* DESCRIPTION */}
-              <p className="text-white/70 leading-relaxed mb-6">
+              <p className="text-white/70 leading-relaxed">
                 {p.desc}
               </p>
 
-              {/* STACK */}
-              <div className="flex items-center justify-between">
+              <div className="mt-8 flex items-center justify-between">
                 <span className="text-sm text-white/40">
-                  {p.stack}
+                  Coming soon
                 </span>
-
-                <span className="text-sm text-white/40 group-hover:text-white transition">
-                  View →
+                <span className="text-sm text-white/40">
+                  →
                 </span>
               </div>
             </motion.article>
