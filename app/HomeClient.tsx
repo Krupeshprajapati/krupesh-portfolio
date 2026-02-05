@@ -288,7 +288,8 @@ function HomeInner() {
 </section>
 
         
-<ContactSuccess />
+<ContactSuccess sent={sent === "true"} />
+
 
 
         {/* CONTACT */}

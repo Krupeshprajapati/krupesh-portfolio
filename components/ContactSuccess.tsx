@@ -1,11 +1,6 @@
 "use client";
 
-import { useSearchParams } from "next/navigation";
-
-export default function ContactSuccess() {
-  const searchParams = useSearchParams();
-  const sent = searchParams.get("sent");
-
+export default function ContactSuccess({ sent }: { sent: boolean }) {
   if (!sent) return null;
 
   return (
