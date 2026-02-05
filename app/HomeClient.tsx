@@ -475,6 +475,7 @@ function HomeInner() {
   );
 }
 
+
 /* ✅ THIS WAS MISSING */
 export default function HomeClient() {
   return (
