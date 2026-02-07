@@ -1,3 +1,4 @@
+"use client";
 import PageWrapper from "@/components/PageWrapper";
 import { motion } from "framer-motion";
 
@@ -47,14 +48,9 @@ export default function ProjectsPage() {
               }}
               className="
                 group
+                glass-card
                 rounded-[28px]
-                border border-white/10
-                bg-white/[0.04]
-                backdrop-blur-xl
                 p-10
-                transition-all duration-500
-                hover:-translate-y-2
-                hover:shadow-[0_30px_80px_-25px_rgba(0,0,0,0.9)]
               "
             >
               {/* TITLE */}

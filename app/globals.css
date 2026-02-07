@@ -10,9 +10,16 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0b0b0f;
-    --foreground: #ededed;
+    /* Premium Dark Theme: Richer, deeper black/blue */
+    --background: #05050a; 
+    --foreground: #e2e8f0;
   }
+}
+
+/* Force dark mode class override */
+.dark :root {
+  --background: #05050a;
+  --foreground: #e2e8f0;
 }
 
 /* -------------------------
@@ -26,38 +33,60 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
-  letter-spacing: 0.25px;
+  letter-spacing: 0.3px;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 
 /* -------------------------
-   STRIPE / APPLE BACKGROUND
+   PREMIUM BACKGROUNDS
 --------------------------*/
 .ai-bg {
   background:
     radial-gradient(
-      900px circle at 15% 20%,
-      rgba(99, 102, 241, 0.18),
-      transparent 40%
-    ),
-    radial-gradient(
-      800px circle at 85% 30%,
-      rgba(236, 72, 153, 0.12),
+      circle at 15% 20%,
+      rgba(99, 102, 241, 0.15) 0%, /* Indigo */
       transparent 45%
     ),
     radial-gradient(
-      1000px circle at 50% 85%,
-      rgba(14, 165, 233, 0.10),
+      circle at 85% 30%,
+      rgba(236, 72, 153, 0.12) 0%, /* Pink */
+      transparent 45%
+    ),
+    radial-gradient(
+      circle at 50% 85%,
+      rgba(14, 165, 233, 0.10) 0%, /* Sky */
       transparent 50%
     );
+  background-attachment: fixed; /* Parallax-like feel */
+}
+
+/* -------------------------
+   GLASSMORPHISM UTILITIES
+--------------------------*/
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.glass-card:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-5px) scale(1.01);
+  box-shadow: 
+    0 20px 40px -5px rgba(0, 0, 0, 0.4),
+    0 0 15px rgba(99, 102, 241, 0.15); /* Subtle indigo glow */
 }
 
 /* -------------------------
    SELECTION (POLISH)
 --------------------------*/
 ::selection {
-  background: rgba(99, 102, 241, 0.35);
+  background: rgba(99, 102, 241, 0.4);
   color: #fff;
 }
 
@@ -66,11 +95,7 @@ body {
 --------------------------*/
 button,
 a {
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease,
-    background-color 0.2s ease,
-    color 0.2s ease;
+  transition: all 0.3s ease;
 }
 
 button:hover,
@@ -79,25 +104,11 @@ a:hover {
 }
 
 /* -------------------------
-   CARD POLISH (GLOBAL)
---------------------------*/
-.card-hover {
-  transition:
-    transform 0.4s ease,
-    box-shadow 0.4s ease;
-}
-
-.card-hover:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 30px 80px -25px rgba(0, 0, 0, 0.9);
-}
-
-/* -------------------------
    SCROLLBAR (DESKTOP ONLY)
 --------------------------*/
 @media (min-width: 768px) {
   ::-webkit-scrollbar {
-    width: 10px;
+    width: 8px;
   }
 
   ::-webkit-scrollbar-track {
@@ -105,11 +116,24 @@ a:hover {
   }
 
   ::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.1);
     border-radius: 999px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.2);
   }
+}
+
+
+header {
+  transition: padding 0.3s ease;
+}
+.scrolled header {
+  padding: 8px 0;
+}
+
+
+html {
+  scroll-behavior: smooth;
 }

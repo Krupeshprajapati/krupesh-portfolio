@@ -49,13 +49,10 @@ export default function DemoPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, ease: "easeOut", delay: 0.1 }}
           className="
+            glass-card
             mt-20
             rounded-[28px]
-            border border-white/10
-            bg-white/[0.04]
-            backdrop-blur-xl
             p-10
-            shadow-[0_30px_80px_-25px_rgba(0,0,0,0.9)]
           "
         >
           {/* INPUT */}
@@ -70,14 +67,15 @@ export default function DemoPage() {
             onChange={(e) => setText(e.target.value)}
             className="
               w-full rounded-2xl
-              bg-black/30
+              bg-white/5
               border border-white/10
               p-4
               text-white
               placeholder-white/30
               focus:outline-none
-              focus:ring-1 focus:ring-white/20
-              transition
+              focus:bg-white/10
+              focus:border-white/20
+              transition-all
             "
           />
 
@@ -116,7 +114,7 @@ export default function DemoPage() {
                 mt-10
                 rounded-2xl
                 border border-white/10
-                bg-black/30
+                bg-white/5
                 p-6
               "
             >

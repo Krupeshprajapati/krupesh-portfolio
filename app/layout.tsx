@@ -46,8 +46,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={`${inter.className}
-          bg-white text-black
-          dark:bg-[#0b0b0f] dark:text-white
+          antialiased
           dark:ai-bg
           transition-colors duration-300`}
       >

@@ -5,18 +5,22 @@ export default function CursorGlow() {
   useEffect(() => {
     const glow = document.createElement("div");
     glow.className =
-      "pointer-events-none fixed z-50 h-32 w-32 rounded-full bg-indigo-500/20 blur-3xl";
+      "pointer-events-none fixed z-50 h-64 w-64 rounded-full bg-indigo-500/15 blur-3xl will-change-transform";
+    glow.style.left = "0px";
+    glow.style.top = "0px";
     document.body.appendChild(glow);
 
     const move = (e: MouseEvent) => {
-      glow.style.left = e.clientX - 64 + "px";
-      glow.style.top = e.clientY - 64 + "px";
+      // Use transform directly for better performance vs top/left
+      glow.style.transform = `translate(${e.clientX - 128}px, ${e.clientY - 128}px)`;
     };
 
     window.addEventListener("mousemove", move);
     return () => {
       window.removeEventListener("mousemove", move);
-      document.body.removeChild(glow);
+      if (document.body.contains(glow)) {
+        document.body.removeChild(glow);
+      }
     };
   }, []);
 
