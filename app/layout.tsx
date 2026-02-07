@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"
+    process.env.NEXT_PUBLIC_SITE_URL || "https://krupesh-portfolio.vercel.app"
   ),
   title: "Krupesh D. Prajapati | AI / ML Developer",
   description:
@@ -16,7 +16,8 @@ export const metadata: Metadata = {
     title: "Krupesh D. Prajapati | AI / ML Developer",
     description:
       "Portfolio of Krupesh D. Prajapati — AI Engineer building real-world AI products.",
-    url: "/",
+    url: process.env.NEXT_PUBLIC_SITE_URL,
+
     siteName: "Krupesh Portfolio",
     images: [
       {
